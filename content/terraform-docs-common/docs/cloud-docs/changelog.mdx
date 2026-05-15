@@ -14,13 +14,56 @@ last_modified: 2026-04-14T20:50:21.000Z
 
 Keep track of changes to HCP Terraform.
 
+## 2026-05-14
+
+* Delegated Policy Overrides. Organization owners can now delegate targeted policy override permissions to specific teams, allowing those teams to override soft-mandatory policies only on the workspaces they manage. Refer to [Policy Enforcement documentation](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/policy-enforcement) for more information.
+
+## 2026-05-13
+
+* HCP Account Linking in SSO. The SSO sign-in flow now links a standalone TFC account to an HCP account and authorizes the SSO organization in a single step.
+
+## 2026-05-06
+
+* Stacks Plan Diagnostics While Awaiting Approval. Plan-step warning diagnostics are now visible on the deployment run timeline while the plan is pending approval, so reviewers can act on them before approving.
+* Optional Generate Config Output for Queries. Terraform queries can now skip generating starter configuration for faster execution. The default behavior is unchanged.
+
+## 2026-05-05
+
+* Usage Report UI Refresh. The organization usage report page now includes a current plan summary section.
+
+## 2026-04-30
+
+* Workspace Tag Filtering Enhancements. The workspaces API now supports union-based tag filtering (`filter[tag-union]=true`) to match workspaces with any of the specified tags, and null-value tag filtering (`filter[tag-value-default-null]=true`) to find workspaces with unset tag values.
+
+## 2026-04-27
+
+* Stack State File Upload in the UI. During a deployment migration, users can now upload a `.tfstackstate` file directly from the HCP Terraform UI instead of using the CLI.
+
+## 2026-04-24
+
+* Concurrency Add-On and Override Ceilings in Plan and Billing. The Plan and Billing page now displays effective concurrency ceilings for remote runs and self-managed agents when concurrency add-ons or organization-level overrides are in effect.
+
+## 2026-04-21
+
+* Stacks New Configuration Button. The stack configurations page now has a "New configuration" button to fetch a fresh config from VCS, rerun an existing configuration, or tear down a stack, without using the CLI.
+
 ## 2026-04-14
 
 * Added HCP Terraform changelog. This provides a historical record of feature changes in HCP Terraform. Refer to this page for ongoing updates.
+* Explorer Remote Module Support. Explorer now surfaces remote modules sourced from GitHub, Bitbucket, S3, GCS, and other VCS or HTTP hosts alongside registry modules, giving teams a complete view of module usage across their workspaces.
+
+## 2026-04-07
+
+* Extended Stack Configuration Create API. The `POST /stacks/:id/stack-configurations` endpoint now accepts a `source` parameter (`manual`, `fetch`, or `reuse`) and a `destroy_all` boolean, letting API users trigger fresh VCS fetches, reuse existing config content, or plan a full stack teardown without modifying the deployments config.
+
+## 2026-04-02
+
+* Stacks Trigger Patterns. Added a UI for configuring VCS trigger patterns on stacks, letting teams specify which file path changes should trigger a stack configuration run.
 
 ## 2026-04-01
 
 * IP Allowlists for HCP Terraform. Organization owners can now create IP allowlists to improve security by controlling user and agent access to their organizations. Refer to [IP Allowlists documentation](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/ip-allowlists) for more information.
+* GitHub Enterprise Cloud (GHE.com) Support for GitHub App. Organizations using GitHub Enterprise Cloud can now connect HCP Terraform via a GitHub App using ghe.com tenant URLs. The integration validates GHE.com tenant and API hosts and supports both SHA-1 and SHA-256 webhook signatures.
 
 ## 2026-03-31
 
